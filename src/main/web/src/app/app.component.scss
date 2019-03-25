@@ -1,0 +1,27 @@
+.header-cls
+{
+  display:flex;
+  flex-flow:row-reverse wrap;
+  padding: 20px 20px 20px 20px;
+  background-color:white;
+  height:120px;
+  width:100%;
+  font-family:Trebuchet MS;
+  color:black
+}
+.footer-cls
+{
+  display:flex;
+  position: fixed;
+  bottom: 0;
+  flex-flow:row-reverse wrap;
+  padding: 20px 20px 20px 20px;
+  background-color:wheat;
+  width:100%;
+  font-family:Trebuchet MS;
+  color:black
+}
+.header-spac-cls
+{
+  width: 20px;
+}

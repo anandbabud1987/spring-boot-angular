@@ -1,0 +1,20 @@
+
+<header class="header-cls">
+
+  <div *ngFor="let item of items">
+    <button mat-button routerLink={{item.routerLink}}><h2>{{item.label}}</h2></button>
+  </div>
+  <div style="align-items:start">
+    <img width="100px" height="100px" src="./../assets/logo_transparent.png">
+</div>
+
+</header>
+<br>
+<mat-divider></mat-divider>
+<!-- <img height="600px" width="60%" src="./assets/water.jpg"> -->
+
+<router-outlet></router-outlet>
+
+<footer class="footer-cls">
+
+</footer>

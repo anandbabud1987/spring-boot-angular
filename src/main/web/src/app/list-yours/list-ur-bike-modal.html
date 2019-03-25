@@ -1,0 +1,129 @@
+
+
+<div class="closeIcon">
+  <button mat-dialog-close ><i  class="fas fa-times"></i></button>
+</div>
+<h2 mat-dialog-title>List Your Car</h2>
+<mat-dialog-content class="mat-typography">
+   <mat-vertical-stepper [linear]="false" #stepper>
+   <mat-step [stepControl]="yourBikeForm" [completed]="false">
+   <ng-template matStepLabel>Your Car</ng-template>
+   <form  #signUpForm="ngForm" name="listBikeForm" novalidate>
+
+     <div class="contact-div">
+       <mat-form-field>
+         <input width="260" matInput value="AIzaSyAs3l3im4xHbA5TKfDvDO-NGYIDAI-mupQ" placeholder="Where is your car located?" name="yourBikeLocation"
+         [(ngModel)]="model.yourCarLocation" required>
+      </mat-form-field>
+    </div>
+    <div class="contact-div">
+      <mat-form-field>
+        <mat-select placeholder="Year"   name="year" required>
+         <mat-option *ngFor="let year of years" [value]="year.value">
+         {{year.value}}
+         </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div style="width:30px">
+    </div>
+      <mat-form-field>
+         <mat-select placeholder="Make"   name="make" required (selectionChange)="onChangeMake($event)">
+            <mat-option *ngFor="let make of makes" [value]="make.value">
+            {{make.value}}
+            </mat-option>
+         </mat-select>
+      </mat-form-field>
+      <div style="width:30px">
+      </div>
+      <mat-form-field>
+      <mat-select placeholder="Model"   name="model" required (selectionChange)="onChangeModel($event)">
+         <mat-option *ngFor="let model of models" [value]="model.value">
+         {{model.value}}
+         </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+      <div style="width:30px">
+      </div>
+
+   </div>
+      <div class="contact-div">
+         <button mat-button matStepperNext>Next</button>
+      </div>
+
+   </form>
+   </mat-step>
+   <mat-step [stepControl]="contactDetailForm" [completed]="false">
+   <ng-template matStepLabel>Contact Details</ng-template>
+   <form name="contactDetailForm">
+      <div class="contact-div">
+         <mat-form-field>
+            <mat-select placeholder="Country"   name="country" required (selectionChange)="onChangeCountry($event)">
+               <mat-option *ngFor="let country of countries" [value]="country.alpha2Code">
+               {{country.name}}
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+         <div style="width:30px">
+         </div>
+         <mat-form-field>
+            <input matInput placeholder="Country Code"  name="countryCode" id="countryCode" [disabled]="this.countryCodedisable"
+            [(ngModel)]="model.countryCode" required maxlength="5">
+         </mat-form-field>
+         <div style="width:30px">
+         </div>
+         <mat-form-field>
+            <input size="200" width="100%" type="tel" matInput placeholder="Mobile Number" name="mobileNumber"
+            [(ngModel)]="model.mobileNumber" required maxlength="12">
+         </mat-form-field>
+      </div>
+      <br>
+      <div class="contact-div">
+         <button align="start" mat-button matStepperPrevious>Back</button>
+         <button align="end" mat-button matStepperNext (click)="finalPage()">Next</button>
+      </div>
+      <div>
+      </div>
+   </form>
+   </mat-step>
+   <mat-step [stepControl]="contactDetailForm" [completed]="false">
+      <ng-template matStepLabel>Driver's License</ng-template>
+
+      <div class="contact-div">
+         <mat-form-field>
+            <mat-select  [(ngModel)]="model.licenseIssueCountry" placeholder="Country of Issuing"   name="countryOfIssuing" required (selectionChange)="onChangeCountry($event)">
+               <mat-option *ngFor="let country of countries" [value]="country.alpha2Code">
+               {{country.name}}
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+         <div style="width:30px">
+         </div>
+         <mat-form-field *ngIf="this.hideProvince">
+            <mat-select   [(ngModel)]="model.licenseIssueProvince" placeholder="Province/State of Issuing"   name="provinceOfIssuing"
+            required (selectionChange)="onChangeCountry($event)">
+               <mat-option *ngFor="let state of states" [value]="state.code">
+               {{state.name}}
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+         <mat-form-field *ngIf="!this.hideProvince">
+            <input matInput placeholder="Province/State"  name="licenseIssueProvince" id="issuingProvince"
+            [(ngModel)]="model.licenseIssueProvince" required maxlength="5">
+         </mat-form-field>
+         <div style="width:30px">
+         </div>
+         <mat-form-field>
+            <input  matInput placeholder="Driver's License Number" maxlength="20" name="driverLicense"
+            [(ngModel)]="model.driverLicense" required>
+         </mat-form-field>
+      </div>
+      <div class="contact-div">
+         <button mat-button matStepperPrevious>Back</button>
+      </div>
+   </mat-step>
+   </mat-vertical-stepper>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+   <button mat-button *ngIf="finished" [mat-dialog-close]="true" (click)="saveYourCar()" cdkFocusInitial><i class="fas fa-save"></i> Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+
+//::ng-deep .mat-form-field .mat-form-field-infix {
+//  width: 500px;
+//}
+.contact-div{
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  padding: 10px;
+  margin: 20px
+}
+.next-btn{
+  display: flex;
+  justify-content: flex-end;
+  color:green;
+  border: 1px;
+}
+.closeIcon{
+    display: flex;
+    justify-content: flex-end;
+}

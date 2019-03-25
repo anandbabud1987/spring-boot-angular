@@ -1,0 +1,5 @@
+[
+  {"label":"About Us","icon":"fa fa-fw fa-bar-chart","routerLink": ["/about-us"]},
+  {"label":"Contact Us","icon":"fa fa-fw fa-bar-chart","routerLink":["/contact-us"]},
+  {"label":"Get H2O","icon":"fa fa-fw fa-bar-chart","routerLink":["/get-h2o"]},
+  {"label":"Provide H2O","icon":"fa fa-fw fa-bar-chart","routerLink":["/provide-h2o"]}    ]
